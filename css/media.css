@@ -1,0 +1,64 @@
+@media (max-width: 830px) {
+
+.menu-body{
+    padding-top: 3rem;
+    justify-content: center;
+}
+
+.logo-white {
+    display: flex;
+    height: 52px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+
+.-mp--left {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    justify-content: center;
+}
+
+.-mp--right {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    justify-content: center;
+}
+
+.-mp--click {
+    padding-top: 2rem;
+    font-size: 0.9rem;
+}
+
+}
+
+@media (max-width: 630px) {
+
+.menu-body {
+    display: none;}
+
+.-m-button {
+    display: flex;
+    font-size: 2rem;
+    padding-right: 2rem;
+    color: rgb(255, 255, 255);
+}
+
+.logo-white {
+    display: flex;
+    height: 52px;
+    position: absolute;
+    left: 50%;
+    top: 5rem;
+}
+
+h1 {
+    font-family: "rounded-bold", sans-serif ;
+    font-size: 3.4rem;
+    letter-spacing: .4rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1 {font-size: 2.5rem;}
+}
