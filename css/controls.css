@@ -1,0 +1,115 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: hsl(230, 15%, 15%);
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+body {
+    font-family: 'Blinker', sans-serif;
+    font-size: 14px;
+}
+
+hr {
+    width: 95%;
+    margin-top: .51rem;
+    margin-bottom: .5rem;
+    border-style: inset;
+    border-width: .12rem;
+    border-color: hsla(230, 15%, 40%, .9);
+}
+
+.-button {
+    width: 36px;
+    height: 36px;
+    border-style: solid;
+    border-color: hsla(230, 15%, 40%, .9);
+    background-color: hsla(230, 15%, 40%, .2);
+    font-size: 1.4rem;
+    color: hsla(230, 100%, 100%, .8);
+}
+
+.-button:hover {
+    color: hsl(35, 100%, 50%);
+}
+
+.-button:active {
+    background-color: hsla(230, 15%, 40%, 1);
+}
+
+.material-icons-outlined.iconGrey {
+    color: hsla(230, 100%, 100%, .4);
+}
+
+.material-icons-outlined.iconGrey:hover {
+    color: hsl(35, 100%, 50%);
+}
+
+  /* --- Sliders --- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 18px;
+    margin: 4px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(230, 15%, 40%, .9);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    bottom: 2px;
+    background-color:  hsla(230, 100%, 100%, .4);
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+    background-color: hsl(35, 100%, 50%, 1);
+}
+
+.slider.round {
+    border-radius: 5px;
+}
+
+.slider.round:before {
+    border-radius: 4px;
+}
