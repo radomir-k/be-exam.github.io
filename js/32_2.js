@@ -1,26 +1,22 @@
 
+const connectionSting = 'https://pixabay.com/api/?key=13758930-1d93593cd503dcde0b0b6f27b';
+const picsPerPage = 300;
 
-
-let color = ['transparent', 'grayscale', 'red', 'orange', 'yellow',
-             'green', 'turquoise', 'blue', 'lilac', 'pink',
-             'white', 'gray', 'black', 'brown'];
-
-let connectionSting = 'https://pixabay.com/api/?key=13758930-1d93593cd503dcde0b0b6f27b';
-let picsPerPage = 100;
-let searchArr = $('#select').val();
-let typeArr = $('.typeSelector').val();
-let categoryArr = $('.categorySelector').val();
-let colorArr = $('.colorSelector').val();
 
 $('.-button.search').click(function(){
-  console.log(searchData);
-  console.log(typeData);
-  console.log(categoryData);
-  console.log(colorData);
+  let searchStr = ('&q=' + $('.gl-search').val());
+  let typeStr = ('&image_type=' + $('.typeSelector').val().join('+'));
+  let categoryStr = ('&category=' + $('.categorySelector').val().join('+'));
+  let colorStr = ('&colors=' + getColorsSelect().join('+'));
+
+  let queryStr = connectionSting + searchStr + typeStr + categoryStr + colorStr + "per_page=" + picsPerPage;
+
+  getPicture(queryStr);
+
 });
 
-// --- Form control --------------------
 
+// --- Form control --------------------
 $(function () {
   $(`.-button.ext`).click(function() {
     $(`.ext-panel`).slideToggle();
@@ -36,6 +32,14 @@ $(function closeUserForm(){
   });
 });
 
+function getColorsSelect() {
+  let arr = [];
+  $('.colorcheck:checked').each(function() {
+    arr.push($(this).val());
+  });
+  return arr;
+}
+
 
 // TODO http://slimselectjs.com/
 
@@ -50,24 +54,35 @@ let categorySelector = new SlimSelect({
   placeholder: 'Select image type',
   showSearch: false,
 })
+// ----------------------------------
 
-// ---------------------------------------------
-
-fetch(connectionSting) // GET
-  .then((response) => response.json())
-  .then((fullRequest) => {
-    console.log (fullRequest);
-    fullRequest.hits.forEach((pict) => {
-      let deltaID = pict.id;
-      let deltaSmallPic = pict.previewURL;
-      let deltaBigPic = pict.webformatURL;
-      $('.image-gallery').append(`
-        <a href="${deltaBigPic}">
-          <img alt="${deltaID}" src="${deltaSmallPic}"/>
-        </a>
-      `);
+function getPicture(fullRequest) {
+  fetch(fullRequest) // GET
+    .then((response) => response.json())
+    .then((fullRequest) => {
+      console.log (fullRequest);
+      fullRequest.hits.forEach((pict) => {
+        let deltaID = pict.id;
+        let deltaSmallPic = pict.previewURL;
+        let deltaBigPic = pict.webformatURL;
+        $('.gallery').append(`
+          <a href="${deltaBigPic}">
+            <img alt="${deltaID}" src="${deltaSmallPic}"/>
+          </a>
+        `);
+      });
+    })
+    .catch((error) => {
+    console.log(error);
     });
-  })
-  .catch((error) => {
-  console.log(error);
-  });
+}
+
+//   $('#gallery').justifiedGallery({
+//     rowHeight: 150,
+//     maxRowHeight:	200,
+//     maxRowsCount:	0,
+//     lastRow: 'center',
+//     captions:	true,
+//     margins: 7,
+//     waitThumbnailsLoad:	true,
+// });
