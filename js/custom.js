@@ -28,7 +28,6 @@ $(function() {
   // === Open Modal Window -------------------------------
   $('.gallery').on('click', 'img', function(event) {
     if(!event.ctrlKey) {
-      event.preventDefault();
       let id = $(this).attr('data-id');
       userCollection.map(item => {
         if(item.id == id) {
@@ -117,7 +116,7 @@ function setPictureCollection(json) {
         <img src="${item.preview}" data-id="${item.id}" alt="${item.type}"/>
         <div class="item-control">
             <span class="item-info" title="Image Type">${item.type}</span>
-            <a class="button-medium download  material-icons" href="${item.download}?attachment" download title="Download Image">cloud_download</a>
+            <a class="button-small download  material-icons" href="${item.download}?attachment" download title="Download Image">cloud_download</a>
             <span class="button-small checked material-icons" data-id="${item.id}" title="Image Select">bookmark_border</span>
         </div>
       </div>
@@ -152,7 +151,7 @@ function switchSelect(id) {
         $(`#${id}`).find('img').attr({'data-select': "true"});
         tempCollection.push(item);
         $('.selected-image').append(`
-          <div class="selected-image-item owl-item ${item.id}ci"><img src="${item.preview}" alt="Pic"/></a></div>
+          <div class="selected-image-item ${item.id}ci"><img src="${item.preview}" alt="Pic"/></a></div>
         `);
       };
     };
@@ -287,7 +286,7 @@ function setColorSelector(selector) {
     $(function() {
       tempCollection.map(item => {
         $('.selected-image').append(`
-          <div class="selected-image-item owl-item button${item.id}ci"><img src="${item.preview}" alt="Pic"/></a></div>
+          <div class="selected-image-item ${item.id}ci"><img src="${item.preview}" alt="Pic"/></a></div>
         `);
       });
       setPictureCollection(tempCollection)
