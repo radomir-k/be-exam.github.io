@@ -1,0 +1,127 @@
+/*--- CSS reset -------------------------------------------------------------*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+}
+
+html,body {
+	margin:0;
+	padding:0;
+    font-size: calc(.7rem + 0.3vw);
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+fieldset,img {
+	border:0;
+}
+
+address,caption,cite,code,dfn,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+
+ol,ul {
+	list-style:none;
+}
+
+caption,th {
+	text-align:left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	/* font-size: 100%; */
+	font-weight:normal;
+}
+
+q:before,q:after {
+	content:'';
+}
+
+abbr,acronym { border:0;
+}
+
+/*--- Basic Parametrs ------------------------------------------------------------*/
+:root {
+    --base: hsl(230, 25%, 20%);
+    --base-light: hsl(230, 25%, 45%);
+    --base-wight: hsl(230, 95%, 95%);
+    --base-block: hsl(230, 25%, 75%);
+    --panel: hsl(230, 25%, 30%);
+    --border: hsl(230, 25%, 30%);
+    --border-light: hsl(230, 25%, 60%);
+    --text-dark: hsl(230, 25%, 60%);
+    --text-light: hsl(230, 97%, 97%);
+    --text-holder: hsl(230, 25%, 45%);
+    --logo-dark: hsl(230, 25%, 30%);
+    --logo-light: hsl(230, 25%, 60%);
+    --hover-base: hsl(230, 25%, 60%);
+    --hover-ext: hsl(35, 100%, 50%);
+    --activ-base: hsl(230, 25%, 40%);
+    --activ-ext: hsl(35, 100%, 50%);
+    --base-translucent: hsla(230, 25%, 20%, 70%);
+}
+
+.grayscale {
+    background: linear-gradient(90deg, #424242 50%, #a8a8a8 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;}
+.red { color: red; }
+.orange { color: orange; }
+.yellow { color: yellow; }
+.green { color: green; }
+.blue { color: blue; }
+.lilac { color:mediumorchid ; }
+.pink  { color: pink; }
+.white { color: white; }
+.gray { color: gray; }
+.black { color: black; }
+.brown { color: brown; }
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.root {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    position: relative;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+body {
+    font-family: 'Blinker', sans-serif;
+    font-size: 14px;
+    background-color: var(--base);
+}
+
+hr {
+    width: 95%;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    border-style: inset;
+    border-width: .12rem;
+    border-color: var(--border);
+}
+
+img {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
